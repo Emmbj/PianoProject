@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.floatlayout import FloatLayout
-
+from kivy.properties import ObjectProperty
 
 class MainScreen(Screen):
     pass
@@ -10,11 +10,14 @@ class MainScreen(Screen):
 
 class InGameScreen(Screen):
 
+    input = ObjectProperty(None)
+
     def __init__(self, **kwargs):
         super(InGameScreen, self).__init__(**kwargs)
 
-    def test(self):
-        print("test")
+    def press_game_button(self):
+        print(self.input.text)
+
 
 
 class ScoreScreen(Screen):

@@ -18,7 +18,11 @@ ScreensManager:
             app.root.current = "game"
 
 <InGameScreen>:
+
     name: "game"
+
+    input: input
+    note: note
 
     Label:
         id: note
@@ -35,7 +39,7 @@ ScreensManager:
         pos_hint: {'center_x': 0.5, 'center_y': 0.2}
         text: "WIN!"
         on_release:
-            root.test()
+            root.press_game_button()
             app.root.current = "score"
 
 
