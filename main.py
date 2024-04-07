@@ -9,7 +9,9 @@ class MainScreen(Screen):
 
 
 class InGameScreen(Screen):
-    pass
+
+    def say_hello(self):
+        print("hello")
 
 
 class ScoreScreen(Screen):

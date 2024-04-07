@@ -16,11 +16,16 @@ textbox.pack(padx=10, pady=10)
 # myentry = tk.Entry(root)
 # myentry.pack()
 
+
+def write():
+    print("test")
+
+
 buttenframe = tk.Frame(root)
 buttenframe.columnconfigure(0, weight=1)
 buttenframe.columnconfigure(1, weight=1)
 buttenframe.columnconfigure(2, weight=1)
-btn1 = tk.Button(buttenframe, text="1", font=("Arial", 18))
+btn1 = tk.Button(buttenframe, text="1", font=("Arial", 18), command=write)
 btn1.grid(row=0, column=0, sticky=tk.W+tk.E)
 
 btn2 = tk.Button(buttenframe, text="2", font=("Arial", 18))
