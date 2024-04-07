@@ -10,8 +10,11 @@ class MainScreen(Screen):
 
 class InGameScreen(Screen):
 
-    def say_hello(self):
-        print("hello")
+    def __init__(self, **kwargs):
+        super(InGameScreen, self).__init__(**kwargs)
+
+    def test(self):
+        print("test")
 
 
 class ScoreScreen(Screen):
