@@ -1,0 +1,62 @@
+ScreensManager:
+    MainScreen:
+    InGameScreen:
+    ScoreScreen:
+
+<Button>:
+    font_size: 30
+    size_hint: 0.2, 0.2
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+<MainScreen>:
+    name: "main"
+
+    Button:
+        background_color: 1, 0, 0, 1
+        text: "PLAY!"
+        on_release:
+            app.root.current = "game"
+
+<InGameScreen>:
+    name: "game"
+
+    Label:
+        id: note
+        text: "f#"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+
+    TextInput:
+        id: input
+        size_hint: (.3, .3)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    Button:
+        background_color: 0, 0, 1, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+        text: "WIN!"
+        on_release:
+            app.root.current = "score" if input.text == note.text else "game"
+
+<ScoreScreen>:
+    name: "score"
+
+    Button:
+        background_color: 0, 1, 0, 1
+        text: "Play again!"
+        on_release:
+            app.root.current = "game"
+
+    Button:
+        background_color: 0, 1, 0, 1
+        text: "Easy!"
+        pos_hint: {"x": 0.2, "y": 0.4}
+        on_release:
+            app.root.current = "game"
+
+
+    Button:
+        background_color: 0, 1, 0, 1
+        text: "Hard!"
+        pos_hint: {"x": 0.6, "y": 0.4}
+        on_release:
+            app.root.current = "game"
