@@ -12,15 +12,20 @@ class MainScreen(Screen):
 
 class InGameScreen(Screen):
 
+    input = ObjectProperty(None)
+    note = ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(InGameScreen, self).__init__(**kwargs)
-        self.play_round_easy()
+        #self.note.text = m.choose_note()
+        #self.play_round_easy()
+
+
+    def choose_note(self):
+        m.choose_note()
 
 
     def play_round_easy(self):
-        self.input.text = m.choose_note()
-        print(self.input.text)
         m.show_score()
         m.set_highscore()
         m.reset_mistakes()
@@ -35,7 +40,7 @@ class InGameScreen(Screen):
         if self.input.text == self.note.text:
             m.points += 1
             self.input.text = ''
-            self.note.text = self.choose_note()
+            self.note.text = m.choose_note()
             print('Richtig!')
         else:
             m.mistakes += 1
@@ -43,6 +48,7 @@ class InGameScreen(Screen):
             self.input.text = ''
             if m.mistakes >= 3:
                 self.manager.current = "score"
+
 
 class ScoreScreen(Screen):
 
