@@ -158,6 +158,3 @@ def play_one_round_hard():
     set_highscore()
     reset_mistakes()
     reset_points()
-
-
-main()
