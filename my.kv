@@ -19,6 +19,7 @@ ScreensManager:
 
 <InGameScreen>:
 
+    id: in_game_screen
     name: "game"
 
     user_input: user_input
@@ -26,12 +27,11 @@ ScreensManager:
 
     Label:
         id: note
-        text: ''
+        text: ""
         pos_hint: {'center_x': 0.5, 'center_y': 0.8}
 
     TextInput:
         id: user_input
-        text: ''
         size_hint: (.3, .3)
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 

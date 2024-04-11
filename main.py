@@ -16,11 +16,13 @@ class InGameScreen(Screen):
     user_input = ObjectProperty(None)
     note = ObjectProperty(None)
 
+
     def __init__(self, **kwargs):
         super(InGameScreen, self).__init__(**kwargs)
 
 
     def play_round_easy(self):
+        self.note = "a"
         m.show_score()
         m.set_highscore()
         m.reset_mistakes()
@@ -31,10 +33,10 @@ class InGameScreen(Screen):
 
         print(self.note)
 
-        if self.user_input.text == self.note.text:
+        if self.user_input.text == self.note:
             m.points += 1
             self.user_input.text = ''
-            self.note.text = m.choose_note()
+            self.note = m.choose_note()
             print('Richtig!')
         else:
             m.mistakes += 1
@@ -60,7 +62,6 @@ kv = Builder.load_file("my.kv")
 
 class MyMainApp(App):
     def build(self):
-        InGameScreen.note = m.choose_note()
         return kv
 
 
