@@ -21,17 +21,17 @@ ScreensManager:
 
     name: "game"
 
-    input: input
+    user_input: user_input
     note: note
 
     Label:
         id: note
-        text: 'test'
+        text: ''
         pos_hint: {'center_x': 0.5, 'center_y': 0.8}
 
     TextInput:
-        id: input
-        text: root.choose_note()
+        id: user_input
+        text: ''
         size_hint: (.3, .3)
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 

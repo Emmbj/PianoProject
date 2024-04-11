@@ -3,8 +3,9 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty
-import random
 import main2 as m
+
+
 
 class MainScreen(Screen):
     pass
@@ -12,17 +13,11 @@ class MainScreen(Screen):
 
 class InGameScreen(Screen):
 
-    input = ObjectProperty(None)
+    user_input = ObjectProperty(None)
     note = ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(InGameScreen, self).__init__(**kwargs)
-        #self.note.text = m.choose_note()
-        #self.play_round_easy()
-
-
-    def choose_note(self):
-        m.choose_note()
 
 
     def play_round_easy(self):
@@ -34,23 +29,23 @@ class InGameScreen(Screen):
 
     def press_game_button(self):
 
-        self.note.text = m.choose_note()
-        print(self.note.text)
+        print(self.note)
 
-        if self.input.text == self.note.text:
+        if self.user_input.text == self.note.text:
             m.points += 1
-            self.input.text = ''
+            self.user_input.text = ''
             self.note.text = m.choose_note()
             print('Richtig!')
         else:
             m.mistakes += 1
             print('Falsch!')
-            self.input.text = ''
+            self.user_input.text = ''
             if m.mistakes >= 3:
                 self.manager.current = "score"
 
 
 class ScoreScreen(Screen):
+
 
     def __init__(self, **kwargs):
         super(ScoreScreen, self).__init__(**kwargs)
@@ -63,9 +58,9 @@ class ScreensManager(ScreenManager):
 
 kv = Builder.load_file("my.kv")
 
-
 class MyMainApp(App):
     def build(self):
+        InGameScreen.note = m.choose_note()
         return kv
 
 
